@@ -90,3 +90,21 @@ li {
 a:hover {
     text-decoration: none
 }
+
+.header {
+    width: 100%;
+    height: 100%;
+}
+
+.header:after {
+    content: "这是头部";
+}
+
+.footer {
+    width: 100%;
+    height: 100%;
+}
+
+.footer:after {
+    content: "这是尾部1";
+}
