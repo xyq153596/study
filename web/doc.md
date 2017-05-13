@@ -22,6 +22,7 @@ jquery做dom操作
 -view  //html目录  
 
 # package.json文件说明
+## devDependencies
 * browser-sync : 开发调试神器
 * concurrently : 可同时运行监控
 * gulp-changed : 只通过更改过的文件
@@ -33,3 +34,9 @@ jquery做dom操作
 * gulp-uglify : 压缩
 * gulp-watch : 监控
 * json-server : 请求模拟
+
+## scripts
+* build 运行js,css,html的一系列操作
+* init 运行js,css,html的一系列操作并且运行browser-sync
+* mock_server 运行模拟服务器
+* dev 运行init和mock_server
