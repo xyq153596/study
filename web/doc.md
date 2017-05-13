@@ -21,7 +21,7 @@ jquery做dom操作
 -resource  //开发目录  
 -view  //html目录  
 
-#package.json文件说明
+# package.json文件说明
 * browser-sync : 开发调试神器
 * concurrently : 可同时运行监控
 * gulp-changed : 只通过更改过的文件
