@@ -2,7 +2,6 @@ let browserSync = require("browser-sync").create();
 let gulp = require("gulp");
 let sass = require("gulp-sass");
 let watch = require("gulp-watch");
-let concat = require("gulp-concat");
 let minicss = require("gulp-clean-css");
 let rename = require("gulp-rename");
 let fileInclude = require('gulp-file-include');
