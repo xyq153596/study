@@ -1,0 +1,1 @@
+define(["jquery"],function(n){"use strict";return{name:"page1",init:function(){console.log(this.name)}}});

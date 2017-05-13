@@ -98,6 +98,7 @@ a:hover {
 
 .header:after {
     content: "这是头部";
+    font-size: 40px;
 }
 
 .footer {
@@ -106,5 +107,6 @@ a:hover {
 }
 
 .footer:after {
-    content: "这是尾部1";
+    content: "这是尾部";
+    font-size: 40px;
 }

@@ -1,0 +1,1 @@
+console.log("yxk.demo","共用js");
