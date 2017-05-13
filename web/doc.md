@@ -6,7 +6,7 @@ sass用于css的合并与生成
 本脚手架适合桌面版且需要支持ie8等老浏览器
 
 # 框架
-require做模块的加载
+require做模块的加载  
 jquery做dom操作
 
 ## require加载流程
