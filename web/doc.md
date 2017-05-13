@@ -1,13 +1,9 @@
-# 思路
-gulp-file-include 用于html的合并与生成  
-sass用于css的合并与生成  
-
 # 适应场景
 本脚手架适合桌面版且需要支持ie8等老浏览器  
 
 # 框架
-require做模块的加载  
-jquery做dom操作  
+* require做模块的加载  
+* jquery做dom操作  
 
 ## require加载流程
 1.在html的body中约定 id="require" module="页面名" child="子页面名"  
@@ -15,11 +11,11 @@ jquery做dom操作
 3.页面的js文件需要暴露init方法,或者当有子页面的时候需要将init方法改成子页面名的方法  
 
 # 目录结构
--dist  //构建工具生成的目录  
--mock  //拦截ajax请求,模拟  
+-dist : 构建工具生成的目录  
+-mock : 拦截ajax请求,模拟  
 -node_modules  
--resource  //开发目录  
--view  //html目录  
+-resource : 开发目录  
+-view : html目录  
 
 # package.json文件说明
 ## devDependencies
@@ -36,7 +32,7 @@ jquery做dom操作
 * json-server : 请求模拟
 
 ## scripts
-* build 运行js,css,html的一系列操作
-* init 运行js,css,html的一系列操作并且运行browser-sync
-* mock_server 运行模拟服务器
-* dev 运行init和mock_server
+* build : 运行js,css,html的一系列操作
+* init : 运行js,css,html的一系列操作并且运行browser-sync
+* mock_server : 运行模拟服务器
+* dev : 运行init和mock_server
