@@ -9,21 +9,7 @@ let fileInclude = require('gulp-file-include');
 let uglify = require('gulp-uglify');
 let reload = browserSync.reload;
 
-/*----调试-----*/
-gulp.task("init", ["css", "html", "js"], () => {
-  browserSync.init({
-    server: {
-      baseDir: "dist/" //初始路径
-    }
-  });
 
-  gulp.watch(["dist/**"]).on("change", (file) => {
-    console.log("重新加载", file.path);
-    reload();
-  });
-
-
-})
 /*---合并html----*/
 gulp.task("html", () => {
   gulp.src(["view/*.html"])
@@ -48,6 +34,7 @@ gulp.task("css", () => {
     .pipe(gulp.dest("dist/css"))
 })
 
+/*-----js处理-----*/
 gulp.task("js", () => {
   gulp.src("resource/js/**/*.js")
     .pipe(watch("resource/js/**/*.js"))
@@ -55,5 +42,18 @@ gulp.task("js", () => {
     .pipe(gulp.dest("dist/js"))
 });
 
+/*----调试-----*/
+gulp.task("init", ["css", "html", "js"], () => {
+  browserSync.init({
+    server: {
+      baseDir: "dist/" //初始路径
+    }
+  });
+  gulp.watch(["dist/**"]).on("change", (file) => {
+    console.log("重新加载", file.path);
+    reload();
+  });
+})
 
+/*----build----*/
 gulp.task("build", ["html", "css", "js"]);
