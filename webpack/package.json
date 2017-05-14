@@ -1,0 +1,11 @@
+{
+  "name": "webpack",
+  "version": "1.0.0",
+  "description": "这是一个使用webpack的脚手架",
+  "scripts": {},
+  "devDependencies": {
+    "json-server": "^0.10.0",
+    "webpack": "^2.5.1",
+    "webpack-merge": "^4.1.0"
+  }
+}
