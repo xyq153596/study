@@ -16,6 +16,7 @@
     "browser-sync": "^2.18.8",
     "concurrently": "^3.4.0",
     "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
     "gulp-changed": "^3.1.0",
     "gulp-clean-css": "^3.2.0",
     "gulp-concat": "^2.6.1",
@@ -25,6 +26,7 @@
     "gulp-sass": "^3.1.0",
     "gulp-uglify": "^2.1.2",
     "gulp-watch": "^4.3.11",
+    "gulp-zip": "^4.0.0",
     "json-server": "^0.10.0"
   }
 }

@@ -6,6 +6,8 @@ let minicss = require("gulp-clean-css");
 let rename = require("gulp-rename");
 let fileInclude = require('gulp-file-include');
 let uglify = require('gulp-uglify');
+let autoprefixer = require('gulp-autoprefixer');
+let zip = require('gulp-zip');
 let reload = browserSync.reload;
 
 
@@ -26,6 +28,7 @@ gulp.task("css", () => {
   gulp.src(filePath)
     .pipe(watch(filePath))
     .pipe(sass()) //转化
+    .pipe(autoprefixer("last 6 version"))
     .pipe(minicss()) //压缩
     .pipe(rename({
       suffix: ".min"
@@ -49,10 +52,16 @@ gulp.task("init", ["css", "html", "js"], () => {
     }
   });
   gulp.watch(["dist/**"]).on("change", (file) => {
-    console.log("重新加载", file.path);
+    console.log("重新加载");
     reload();
   });
 })
 
 /*----build----*/
 gulp.task("build", ["html", "css", "js"]);
+/*----zip----*/
+gulp.task("zip", () => {
+  gulp.src("dist/**")
+    .pipe(zip("build.zip"))
+    .pipe(gulp.dest("./"))
+});
