@@ -1,9 +1,8 @@
 {
-  "components":[],
-  "pages":{
-    "page1":{
-      "title":"page1",
-      
+  "components": [],
+  "pages": {
+    "page1": {
+      "title": "page1"
     }
   }
 }
