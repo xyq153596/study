@@ -1,0 +1,1 @@
+* 文件监控使用[chokidar](https://github.com/paulmillr/chokidar). 使用原生的fs.watch是个大坑.

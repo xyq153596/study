@@ -8,6 +8,7 @@ let fileInclude = require('gulp-file-include');
 let uglify = require('gulp-uglify');
 let autoprefixer = require('gulp-autoprefixer');
 let zip = require('gulp-zip');
+let plumber = require('gulp-plumber');
 let reload = browserSync.reload;
 
 
@@ -26,6 +27,7 @@ gulp.task("html", () => {
 gulp.task("css", () => {
   let filePath = "resource/sass/**/*.scss";
   gulp.src(filePath)
+    .pipe(plumber())
     .pipe(watch(filePath))
     .pipe(sass()) //转化
     .pipe(autoprefixer("last 6 version"))
