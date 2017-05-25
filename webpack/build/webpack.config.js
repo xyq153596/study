@@ -9,7 +9,7 @@ function resolve(dir) {
 }
 const config = {
   entry: {
-    header: resolve('src/components/header/index.js')
+    page1: resolve('src/view/pages/index.js')
   },
   output: {
     filename: '[name].js',
@@ -35,7 +35,7 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'test.html',
-      template: resolve('src/components/header/view.hbs')
+      // template: resolve('src/components/header/view.hbs')
     }),
     new ExtractTextWebpackplugin("styles.css")
   ]
