@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "egg": "^1.2.1",
+    "egg-mongoose": "^2.1.0",
     "egg-view-handlebars": "^1.2.0",
     "egg-view-nunjucks": "^2.1.1"
   },

@@ -17,5 +17,9 @@ module.exports = appInfo => {
   }
   config.middleware = ['test'];
   config.css = "傻逼逼";
+  config.mongoose = {
+    url: 'localhost',
+    options: 'db'
+  };
   return config;
 };

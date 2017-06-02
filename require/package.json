@@ -28,6 +28,7 @@
     "gulp-uglify": "^2.1.2",
     "gulp-watch": "^4.3.11",
     "gulp-zip": "^4.0.0",
-    "json-server": "^0.10.0"
+    "json-server": "^0.10.1",
+    "node-sass": "^4.5.3"
   }
 }
