@@ -1,0 +1,25 @@
+{
+    "pages": {
+        "index": {
+            "tpl": "asdadadasd.tpl",
+            "css": {
+                "base": "base.css",
+                "index": "index.css"
+            },
+            "js": {
+                "jquery": "jquery.js",
+                "base": {
+                    "path": "base.js",
+                    "version": "adasdasdasd"
+                }
+            }
+        }
+    },
+    "components": {
+        "hello": {
+            "tpl": "d://www.fois.com",
+            "css": ["d://sfa.css"],
+            "js": ["d://ds.js"]
+        }
+    }
+}
