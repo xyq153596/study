@@ -3,7 +3,9 @@
     <mainheader>
         <slot name="header"></slot>
     </mainheader>
+    <slot></slot>
     <slot name="main"></slot>
+    
     <mainfooter>
         <slot name="footer"></slot>
     </mainfooter>

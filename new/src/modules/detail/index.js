@@ -8,3 +8,5 @@ let vm = new Vue({
     app
   }
 })
+
+// console.log(_.chunk(['a', 'b', 'c', 'd'], 2))
