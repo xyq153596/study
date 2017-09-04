@@ -2,7 +2,7 @@
     <div class="index">
         <layout>
             <div slot="header"><b>大傻逼头部</b></div>
-            <p slot="main">大傻逼主体</p>
+            <p slot="main">大傻逼主体22</p>
             <div slot="footer">大傻逼尾部</div>
         </layout>
     </div>

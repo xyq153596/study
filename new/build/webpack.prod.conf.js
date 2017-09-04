@@ -9,9 +9,13 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 
-var env = process.env.NODE_ENV === 'testing'
-  ? require('../config/test.env')
-  : config.build.env
+
+// custom plugins
+var testWebpackPlugin = require('../webpack_plugin/test-webpack-plugin')
+
+var env = process.env.NODE_ENV === 'testing' ?
+  require('../config/test.env') :
+  config.build.env
 
 var webpackConfig = merge(baseWebpackConfig, {
   module: {
@@ -88,13 +92,11 @@ var webpackConfig = merge(baseWebpackConfig, {
       chunks: ['vendor']
     }),
     // copy custom static assets
-    new CopyWebpackPlugin([
-      {
-        from: path.resolve(__dirname, '../static'),
-        to: config.build.assetsSubDirectory,
-        ignore: ['.*']
-      }
-    ])
+    new CopyWebpackPlugin([{
+      from: path.resolve(__dirname, '../static'),
+      to: config.build.assetsSubDirectory,
+      ignore: ['.*']
+    }])
   ]
 })
 
@@ -127,7 +129,7 @@ var paths = utils.getEntries(path.resolve(__dirname, '../src/modules/**/*.html')
 
 Object.keys(paths).forEach(function (dirname) {
   var conf = {
-    filename: dirname + '.html',
+    filename: path.join(config.build.assetsRoot, 'view', dirname, '/index.html'),
     template: paths[dirname], // 模板路径
     chunks: [dirname, 'vendor', 'manifest'], // 每个html引用的js模块
     inject: true // js插入位置
@@ -136,5 +138,9 @@ Object.keys(paths).forEach(function (dirname) {
   webpackConfig.plugins.push(new HtmlWebpackPlugin(conf));
 })
 
-module.exports = webpackConfig
 
+
+// webpackConfig.plugins.push(new testWebpackPlugin());
+
+
+module.exports = webpackConfig
