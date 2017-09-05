@@ -2,8 +2,8 @@
     <div class="index">
         <layout>
             <div slot="header"><b>大傻逼头部</b></div>
-            <p slot="main">大傻逼主体22</p>
-            <div slot="footer">大傻逼尾部</div>
+            <p slot="main">大傻逼主体2ssssssssss2</p>
+            <div slot="footer">大傻逼尾22222222部</div>
         </layout>
     </div>
 </template>
