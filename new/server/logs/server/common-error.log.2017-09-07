@@ -1,0 +1,18 @@
+2017-09-07 18:42:16,843 ERROR 10248 nodejs.ClusterClientNoResponseError: client no response in 65386831ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout.Leader._heartbeatTimer.setInterval [as _onTimeout] (E:\yxk_cli\new\server\node_modules\.1.7.0@cluster-client\lib\leader.js:73:23)
+    at ontimeout (timers.js:380:14)
+    at tryOnTimeout (timers.js:244:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+name: 'ClusterClientNoResponseError'
+pid: 10248
+hostname: DESKTOP-JJCT3A6
+
+2017-09-08 18:26:44,046 ERROR 10248 nodejs.ClusterClientNoResponseError: client no response in 67785907ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout.Leader._heartbeatTimer.setInterval [as _onTimeout] (E:\yxk_cli\new\server\node_modules\.1.7.0@cluster-client\lib\leader.js:73:23)
+    at ontimeout (timers.js:380:14)
+    at tryOnTimeout (timers.js:244:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+name: 'ClusterClientNoResponseError'
+pid: 10248
+hostname: DESKTOP-JJCT3A6
+

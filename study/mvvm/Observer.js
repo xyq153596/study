@@ -1,10 +1,10 @@
 class Observer {
     constructor(obj) {
 
-        this.defineProperty(obj)
+        
     }
 
-    defineProperty(obj, key, val) {
+    observerData(obj, key, val) {
         Object.defineProperty(obj, key, {
             enumerable: true,
             configurable: false,
@@ -22,6 +22,6 @@ class Observer {
 
 let o = new Observer()
 let obj = {};
-o.defineProperty(obj, 'a', 10);
-console.log(obj)
+o.observerData(obj, 'a', 10);
+console.log(obj.a)
 module.exports = Observer;

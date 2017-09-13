@@ -1,0 +1,61 @@
+2017-09-05 20:24:21,018 INFO 2148 [egg:logger] init all loggers with options: {"dir":"E:\\yxk_cli\\new\\server\\logs\\server","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"server-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"type":"application"}
+2017-09-05 20:24:21,064 INFO 2148 [egg-schedule]: register schedule egg-schedule:E:\yxk_cli\new\server\node_modules\.2.2.3@egg-logrotator\app\schedule\clean_log.js
+2017-09-05 20:24:21,064 INFO 2148 [egg-schedule]: register schedule egg-schedule:E:\yxk_cli\new\server\node_modules\.2.2.3@egg-logrotator\app\schedule\rotate_by_file.js
+2017-09-05 20:24:21,137 INFO 2148 [egg-static] starting static serve /public/ -> E:\yxk_cli\new\server\app\public
+2017-09-05 20:24:21,140 INFO 2148 [egg-security] use csrf middleware
+2017-09-05 20:24:21,141 INFO 2148 [egg-security] use methodnoallow middleware
+2017-09-05 20:24:21,142 INFO 2148 [egg-security] use noopen middleware
+2017-09-05 20:24:21,142 INFO 2148 [egg-security] use nosniff middleware
+2017-09-05 20:24:21,143 INFO 2148 [egg-security] use xssProtection middleware
+2017-09-05 20:24:21,143 INFO 2148 [egg-security] use xframe middleware
+2017-09-05 20:24:21,144 INFO 2148 [egg-security] use dta middleware
+2017-09-05 20:24:21,144 INFO 2148 [egg-security] compose 7 middlewares into one security middleware
+2017-09-05 20:24:21,228 INFO 2148 [egg-watcher:app] watcher start success
+2017-09-05 20:27:41,378 INFO 12844 [egg:logger] init all loggers with options: {"dir":"E:\\yxk_cli\\new\\server\\logs\\server","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"server-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"type":"application"}
+2017-09-05 20:27:41,436 INFO 12844 [egg-schedule]: register schedule egg-schedule:E:\yxk_cli\new\server\node_modules\.2.2.3@egg-logrotator\app\schedule\clean_log.js
+2017-09-05 20:27:41,436 INFO 12844 [egg-schedule]: register schedule egg-schedule:E:\yxk_cli\new\server\node_modules\.2.2.3@egg-logrotator\app\schedule\rotate_by_file.js
+2017-09-05 20:27:41,515 INFO 12844 [egg-static] starting static serve /public/ -> E:\yxk_cli\new\server\app\public
+2017-09-05 20:27:41,518 INFO 12844 [egg-security] use csrf middleware
+2017-09-05 20:27:41,520 INFO 12844 [egg-security] use methodnoallow middleware
+2017-09-05 20:27:41,521 INFO 12844 [egg-security] use noopen middleware
+2017-09-05 20:27:41,521 INFO 12844 [egg-security] use nosniff middleware
+2017-09-05 20:27:41,522 INFO 12844 [egg-security] use xssProtection middleware
+2017-09-05 20:27:41,523 INFO 12844 [egg-security] use xframe middleware
+2017-09-05 20:27:41,524 INFO 12844 [egg-security] use dta middleware
+2017-09-05 20:27:41,524 INFO 12844 [egg-security] compose 7 middlewares into one security middleware
+2017-09-05 20:27:41,573 INFO 12844 [egg-watcher:app] watcher start success
+2017-09-05 20:32:07,248 INFO 1272 [egg:logger] init all loggers with options: {"dir":"E:\\yxk_cli\\new\\server\\logs\\server","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"server-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"type":"application"}
+2017-09-05 20:32:07,283 INFO 1272 [egg-schedule]: register schedule egg-schedule:E:\yxk_cli\new\server\node_modules\.2.2.3@egg-logrotator\app\schedule\clean_log.js
+2017-09-05 20:32:07,283 INFO 1272 [egg-schedule]: register schedule egg-schedule:E:\yxk_cli\new\server\node_modules\.2.2.3@egg-logrotator\app\schedule\rotate_by_file.js
+2017-09-05 20:32:07,345 INFO 1272 [egg-static] starting static serve /public/ -> E:\yxk_cli\new\server\app\public
+2017-09-05 20:32:07,345 INFO 1272 [egg-security] use csrf middleware
+2017-09-05 20:32:07,345 INFO 1272 [egg-security] use methodnoallow middleware
+2017-09-05 20:32:07,345 INFO 1272 [egg-security] use noopen middleware
+2017-09-05 20:32:07,345 INFO 1272 [egg-security] use nosniff middleware
+2017-09-05 20:32:07,345 INFO 1272 [egg-security] use xssProtection middleware
+2017-09-05 20:32:07,345 INFO 1272 [egg-security] use xframe middleware
+2017-09-05 20:32:07,345 INFO 1272 [egg-security] use dta middleware
+2017-09-05 20:32:07,345 INFO 1272 [egg-security] compose 7 middlewares into one security middleware
+2017-09-05 20:32:07,377 INFO 1272 [egg-watcher:app] watcher start success
+2017-09-05 20:37:13,177 INFO 12556 [egg:logger] init all loggers with options: {"dir":"E:\\yxk_cli\\new\\server\\logs\\server","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"server-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"type":"application"}
+2017-09-05 20:37:13,224 INFO 12556 [egg-schedule]: register schedule egg-schedule:E:\yxk_cli\new\server\node_modules\.2.2.3@egg-logrotator\app\schedule\clean_log.js
+2017-09-05 20:37:13,224 INFO 12556 [egg-schedule]: register schedule egg-schedule:E:\yxk_cli\new\server\node_modules\.2.2.3@egg-logrotator\app\schedule\rotate_by_file.js
+2017-09-05 20:37:13,287 INFO 12556 [egg-static] starting static serve /public/ -> E:\yxk_cli\new\server\app\public
+2017-09-05 20:37:13,287 INFO 12556 [egg-security] use csrf middleware
+2017-09-05 20:37:13,287 INFO 12556 [egg-security] use methodnoallow middleware
+2017-09-05 20:37:13,287 INFO 12556 [egg-security] use noopen middleware
+2017-09-05 20:37:13,287 INFO 12556 [egg-security] use nosniff middleware
+2017-09-05 20:37:13,287 INFO 12556 [egg-security] use xssProtection middleware
+2017-09-05 20:37:13,287 INFO 12556 [egg-security] use xframe middleware
+2017-09-05 20:37:13,287 INFO 12556 [egg-security] use dta middleware
+2017-09-05 20:37:13,287 INFO 12556 [egg-security] compose 7 middlewares into one security middleware
+2017-09-05 20:37:13,319 INFO 12556 [egg-watcher:app] watcher start success
+2017-09-06 18:55:46,915 WARN 12556 [TCPBase] socket is closed by other side while there were still unhandled data in the socket buffer
+2017-09-06 18:55:47,471 WARN 12556 [ClusterClient:Watcher] follower closed, and try to init it again
+2017-09-06 18:55:47,563 INFO 12556 [egg-schedule]: get message egg-schedule:E:\yxk_cli\new\server\node_modules\.2.2.3@egg-logrotator\app\schedule\rotate_by_file.js
+2017-09-06 18:55:47,571 INFO 12556 [egg-schedule]: get message egg-schedule:E:\yxk_cli\new\server\node_modules\.2.2.3@egg-logrotator\app\schedule\clean_log.js
+2017-09-06 18:55:47,576 INFO 12556 [egg-logrotator] clean all log before 31 days
+2017-09-06 18:55:47,576 INFO 12556 [egg-schedule] egg-schedule:E:\yxk_cli\new\server\node_modules\.2.2.3@egg-logrotator\app\schedule\clean_log.js excute succeed, used 5ms
+2017-09-06 18:55:47,607 INFO 12556 [egg-logrotator] broadcast log-reload
+2017-09-06 18:55:47,610 INFO 12556 [egg-logrotator] rotate files success by DayRotator, files ["E:\\yxk_cli\\new\\server\\logs\\server\\common-error.log -> E:\\yxk_cli\\new\\server\\logs\\server\\common-error.log.2017-09-05","E:\\yxk_cli\\new\\server\\logs\\server\\server-web.log -> E:\\yxk_cli\\new\\server\\logs\\server\\server-web.log.2017-09-05","E:\\yxk_cli\\new\\server\\logs\\server\\egg-web.log -> E:\\yxk_cli\\new\\server\\logs\\server\\egg-web.log.2017-09-05","E:\\yxk_cli\\new\\server\\logs\\server\\egg-agent.log -> E:\\yxk_cli\\new\\server\\logs\\server\\egg-agent.log.2017-09-05"]
+2017-09-06 18:55:47,610 INFO 12556 [egg-schedule] egg-schedule:E:\yxk_cli\new\server\node_modules\.2.2.3@egg-logrotator\app\schedule\rotate_by_file.js excute succeed, used 46ms
