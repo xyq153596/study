@@ -7,7 +7,7 @@
             <search></search>
             <div slot="main">
                 <search></search>
-                大傻逼主ssssssssssssssss体
+                大傻逼主sssssasdsadssasdasdadsssssssss体
             </div>
             <search></search>
             <div slot="footer">大傻逼sssssss尾部</div>
