@@ -1,8 +1,9 @@
+const dep = require('./Dep')
 /**
  * 监控对象及子对象
  * @param {*} data 
  */
-function observe(data) {
+function Observe(data) {
     if (!data || typeof data !== 'object') {
         return;
     }
@@ -19,6 +20,7 @@ function observe(data) {
  * @param {*} val 
  */
 function defineReactive(data, key, val) {
+    let dep = new dep();
     observe(val); // 监听子属性
     Object.defineProperty(data, key, {
         enumerable: true, // 可枚举
@@ -27,8 +29,12 @@ function defineReactive(data, key, val) {
             return val;
         },
         set: function (newVal) {
-            console.log('哈哈哈，监听到值变化了 ', val, ' --> ', newVal);
+            if (val === newVal) return
             val = newVal;
+            dep.notify(); //数据变动通知所有订阅者
         }
     });
 }
+
+
+// module.exports = Observe;
