@@ -1,8 +1,0 @@
-2017-09-06 18:55:47,612 INFO 12556 [egg-logrotator] app logger reload: got log-reload message
-2017-09-07 00:00:00,003 INFO 12556 [egg-schedule]: get message egg-schedule:E:\yxk_cli\new\server\node_modules\.2.2.3@egg-logrotator\app\schedule\clean_log.js
-2017-09-07 00:00:00,006 INFO 12556 [egg-logrotator] clean all log before 31 days
-2017-09-07 00:00:00,006 INFO 12556 [egg-schedule] egg-schedule:E:\yxk_cli\new\server\node_modules\.2.2.3@egg-logrotator\app\schedule\clean_log.js excute succeed, used 3ms
-2017-09-07 00:00:00,011 INFO 12556 [egg-schedule]: get message egg-schedule:E:\yxk_cli\new\server\node_modules\.2.2.3@egg-logrotator\app\schedule\rotate_by_file.js
-2017-09-07 00:00:00,015 INFO 12556 [egg-logrotator] broadcast log-reload
-2017-09-07 00:00:00,015 INFO 12556 [egg-logrotator] rotate files success by DayRotator, files ["E:\\yxk_cli\\new\\server\\logs\\server\\common-error.log -> E:\\yxk_cli\\new\\server\\logs\\server\\common-error.log.2017-09-06","E:\\yxk_cli\\new\\server\\logs\\server\\server-web.log -> E:\\yxk_cli\\new\\server\\logs\\server\\server-web.log.2017-09-06","E:\\yxk_cli\\new\\server\\logs\\server\\egg-web.log -> E:\\yxk_cli\\new\\server\\logs\\server\\egg-web.log.2017-09-06","E:\\yxk_cli\\new\\server\\logs\\server\\egg-agent.log -> E:\\yxk_cli\\new\\server\\logs\\server\\egg-agent.log.2017-09-06"]
-2017-09-07 00:00:00,015 INFO 12556 [egg-schedule] egg-schedule:E:\yxk_cli\new\server\node_modules\.2.2.3@egg-logrotator\app\schedule\rotate_by_file.js excute succeed, used 4ms
