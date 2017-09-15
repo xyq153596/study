@@ -1,9 +1,9 @@
 /* @flow */
 
 import { genHandlers } from './events'
-import { baseWarn, pluckModuleFunction } from '../helpers'
 import baseDirectives from '../directives/index'
 import { camelize, no, extend } from 'shared/util'
+import { baseWarn, pluckModuleFunction } from '../helpers'
 
 type TransformFunction = (el: ASTElement, code: string) => string;
 type DataGenFunction = (el: ASTElement) => string;
@@ -113,7 +113,7 @@ function genOnce (el: ASTElement, state: CodegenState): string {
       )
       return genElement(el, state)
     }
-    return `_o(${genElement(el, state)},${state.onceId++}${key ? `,${key}` : ``})`
+    return `_o(${genElement(el, state)},${state.onceId++},${key})`
   } else {
     return genStatic(el, state)
   }
@@ -267,6 +267,10 @@ export function genData (el: ASTElement, state: CodegenState): string {
   // v-bind data wrap
   if (el.wrapData) {
     data = el.wrapData(data)
+  }
+  // v-on data wrap
+  if (el.wrapListeners) {
+    data = el.wrapListeners(data)
   }
   return data
 }
@@ -438,7 +442,7 @@ export function genText (text: ASTText | ASTExpression): string {
 }
 
 export function genComment (comment: ASTText): string {
-  return `_e('${comment.text}')`
+  return `_e(${JSON.stringify(comment.text)})`
 }
 
 function genSlot (el: ASTElement, state: CodegenState): string {

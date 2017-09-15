@@ -1,35 +1,54 @@
 /* @flow */
 
 import type VueRouter from './index'
-import { resolvePath } from './util/path'
-import { assert, warn } from './util/warn'
-import { createRoute } from './util/route'
-import { fillParams } from './util/params'
-import { createRouteMap } from './create-route-map'
-import { normalizeLocation } from './util/location'
+import {
+  resolvePath
+} from './util/path'
+import {
+  assert,
+  warn
+} from './util/warn'
+import {
+  createRoute
+} from './util/route'
+import {
+  fillParams
+} from './util/params'
+import {
+  createRouteMap
+} from './create-route-map'
+import {
+  normalizeLocation
+} from './util/location'
 
 export type Matcher = {
-  match: (raw: RawLocation, current?: Route, redirectedFrom?: Location) => Route;
-  addRoutes: (routes: Array<RouteConfig>) => void;
+  match: (raw: RawLocation, current ? : Route, redirectedFrom ? : Location) => Route;
+  addRoutes: (routes: Array < RouteConfig > ) => void;
 };
 
-export function createMatcher (
-  routes: Array<RouteConfig>,
+export function createMatcher(
+  routes: Array < RouteConfig > ,
   router: VueRouter
 ): Matcher {
-  const { pathList, pathMap, nameMap } = createRouteMap(routes)
+  const {
+    pathList,
+    pathMap,
+    nameMap
+  } = createRouteMap(routes)
 
-  function addRoutes (routes) {
+  function addRoutes(routes) {
     createRouteMap(routes, pathList, pathMap, nameMap)
   }
 
-  function match (
+  function match(
     raw: RawLocation,
-    currentRoute?: Route,
-    redirectedFrom?: Location
+    currentRoute ? : Route,
+    redirectedFrom ? : Location
   ): Route {
     const location = normalizeLocation(raw, currentRoute, false, router)
-    const { name } = location
+    const {
+      name
+    } = location
 
     if (name) {
       const record = nameMap[name]
@@ -71,17 +90,19 @@ export function createMatcher (
     return _createRoute(null, location)
   }
 
-  function redirect (
+  function redirect(
     record: RouteRecord,
     location: Location
   ): Route {
     const originalRedirect = record.redirect
-    let redirect = typeof originalRedirect === 'function'
-        ? originalRedirect(createRoute(record, location, null, router))
-        : originalRedirect
+    let redirect = typeof originalRedirect === 'function' ?
+      originalRedirect(createRoute(record, location, null, router)) :
+      originalRedirect
 
     if (typeof redirect === 'string') {
-      redirect = { path: redirect }
+      redirect = {
+        path: redirect
+      }
     }
 
     if (!redirect || typeof redirect !== 'object') {
@@ -94,8 +115,15 @@ export function createMatcher (
     }
 
     const re: Object = redirect
-    const { name, path } = re
-    let { query, hash, params } = location
+    const {
+      name,
+      path
+    } = re
+    let {
+      query,
+      hash,
+      params
+    } = location
     query = re.hasOwnProperty('query') ? re.query : query
     hash = re.hasOwnProperty('hash') ? re.hash : hash
     params = re.hasOwnProperty('params') ? re.params : params
@@ -133,7 +161,7 @@ export function createMatcher (
     }
   }
 
-  function alias (
+  function alias(
     record: RouteRecord,
     location: Location,
     matchAs: string
@@ -152,10 +180,10 @@ export function createMatcher (
     return _createRoute(null, location)
   }
 
-  function _createRoute (
-    record: ?RouteRecord,
-    location: Location,
-    redirectedFrom?: Location
+  function _createRoute(
+    record: ? RouteRecord,
+    location : Location,
+    redirectedFrom ? : Location
   ): Route {
     if (record && record.redirect) {
       return redirect(record, redirectedFrom || location)
@@ -172,7 +200,7 @@ export function createMatcher (
   }
 }
 
-function matchRoute (
+function matchRoute(
   regex: RouteRegExp,
   path: string,
   params: Object
@@ -196,6 +224,6 @@ function matchRoute (
   return true
 }
 
-function resolveRecordPath (path: string, record: RouteRecord): string {
+function resolveRecordPath(path: string, record: RouteRecord): string {
   return resolvePath(path, record.parent ? record.parent.path : '/', true)
 }
