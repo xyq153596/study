@@ -55,22 +55,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     // generate dist index.html with correct asset hash for caching.
     // you can customize output by editing /index.html
     // see https://github.com/ampedandwired/html-webpack-plugin
-    // new HtmlWebpackPlugin({
-    //   filename: process.env.NODE_ENV === 'testing'
-    //     ? 'index.html'
-    //     : config.build.index,
-    //   template: 'index.html',
-    //   inject: true,
-    //   minify: {
-    //     removeComments: true,
-    //     collapseWhitespace: true,
-    //     removeAttributeQuotes: true
-    //     // more options:
-    //     // https://github.com/kangax/html-minifier#options-quick-reference
-    //   },
-    //   // necessary to consistently work with multiple chunks via CommonsChunkPlugin
-    //   chunksSortMode: 'dependency'
-    // }),
+    new HtmlWebpackPlugin(),
     // split vendor js into its own file
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
@@ -123,24 +108,34 @@ if (config.build.bundleAnalyzerReport) {
   webpackConfig.plugins.push(new BundleAnalyzerPlugin())
 }
 
-var path = require('path');
 
-var paths = utils.getEntries(path.resolve(__dirname, '../src/modules/**/*.html'));
-
-Object.keys(paths).forEach(function (dirname) {
-  var conf = {
-    filename: path.join(config.build.assetsRoot, 'view', dirname, '/index.html'),
-    template: paths[dirname], // 模板路径
-    chunks: [dirname, 'vendor', 'manifest'], // 每个html引用的js模块
-    inject: true // js插入位置
-  };
-  // 需要生成几个html文件，就配置几个HtmlWebpackPlugin对象
+if (config.common.single) {
+  let conf = {
+    filename: path.join(config.build.assetsRoot, 'view', '/index.html'),
+    template: './src/index.html',
+    inject: true,
+    minify: {
+      removeComments: true,
+      collapseWhitespace: true,
+      removeAttributeQuotes: true
+    },
+    chunksSortMode: 'dependency'
+  }
   webpackConfig.plugins.push(new HtmlWebpackPlugin(conf));
-})
+} else {
+  var paths = utils.getEntries(path.resolve(__dirname, '../src/modules/**/*.html'));
 
-
-
-// webpackConfig.plugins.push(new testWebpackPlugin());
+  Object.keys(paths).forEach(function (dirname) {
+    var conf = {
+      filename: path.join(config.build.assetsRoot, 'view', dirname, '/index.html'),
+      template: paths[dirname], // 模板路径
+      chunks: [dirname, 'vendor', 'manifest'], // 每个html引用的js模块
+      inject: true // js插入位置
+    };
+    // 需要生成几个html文件，就配置几个HtmlWebpackPlugin对象
+    webpackConfig.plugins.push(new HtmlWebpackPlugin(conf));
+  })
+}
 
 
 module.exports = webpackConfig

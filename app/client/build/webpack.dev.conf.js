@@ -1,3 +1,4 @@
+var path = require('path')
 var utils = require('./utils')
 var webpack = require('webpack')
 var config = require('../config')
@@ -29,26 +30,36 @@ module.exports = merge(baseWebpackConfig, {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     // https://github.com/ampedandwired/html-webpack-plugin
-    // new HtmlWebpackPlugin({
-    //   filename: 'index.html',
-    //   template: 'index.html',
-    //   inject: true
-    // }),
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: 'index.html',
+      inject: true
+    }),
     new FriendlyErrorsPlugin()
   ]
 })
 
-var path = require('path');
 
-var paths = utils.getEntries(path.resolve(__dirname, '../src/modules/**/*.html'));
 
-Object.keys(paths).forEach(function (dirname) {
-  var conf = {
-    filename: dirname + '.html',
-    template: paths[dirname], // 模板路径
-    chunks: [dirname, 'vendor', 'manifest'], // 每个html引用的js模块
-    inject: true // js插入位置
-  };
-  // 需要生成几个html文件，就配置几个HtmlWebpackPlugin对象
-  module.exports.plugins.push(new HtmlWebpackPlugin(conf));
-})
+// 如果使用单页面配置
+if (config.common.single) {
+  // var conf = {
+  //   filename: 'index.html',
+  //   template: './src/index.html',
+  //   inject: true
+  // }
+  // module.exports.plugins.push(new HtmlWebpackPlugin(conf));
+} else {
+  var paths = utils.getEntries(path.resolve(__dirname, '../src/modules/**/*.html'));
+
+  Object.keys(paths).forEach(function (dirname) {
+    var conf = {
+      filename: dirname + '.html',
+      template: paths[dirname], // 模板路径
+      chunks: [dirname, 'vendor', 'manifest'], // 每个html引用的js模块
+      inject: true // js插入位置
+    };
+    // 需要生成几个html文件，就配置几个HtmlWebpackPlugin对象
+    module.exports.plugins.push(new HtmlWebpackPlugin(conf));
+  })
+}

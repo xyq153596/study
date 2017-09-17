@@ -2,10 +2,13 @@
 var path = require('path')
 
 module.exports = {
+  common: {
+    single: true
+  },
   build: {
     env: require('./prod.env'),
-    index: path.resolve(__dirname, '../dist/index.html'),
-    assetsRoot: path.resolve(__dirname, '../server/app'),
+    index: path.resolve(__dirname, '../../server/app/view/index.html'),
+    assetsRoot: path.resolve(__dirname, '../../server/app'),
     assetsSubDirectory: 'public',
     assetsPublicPath: '/',
     productionSourceMap: false,
