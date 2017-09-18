@@ -6,41 +6,45 @@
         <div v-if="error" class="error">
             错误...
         </div>
-        这个是详细页{{art}}</br>
+        这个是详细页</br>
+        数据:{{art}}</br>
         id:{{id}}
     </div>
 </template>
 <script>
 import { mapState, mapActions } from 'vuex'
+import { types_lines } from '@store/mutation-types.js'
 export default {
     name: 'detail',
     computed: {
         id() {
-            return 1;
+            return this.$route.params.id;
         },
-        ...mapState(['art', 'loading', 'error'])
+        ...mapState({
+            art: state => state.lines.art,
+            loading: state => state.loading,
+            error: state => state.error,
+        })
     },
     beforeRouteEnter: (to, from, next) => {
         next(vm => {
-            vm.artAsync().then(()=>{
-                console.log('成功了')
-            });
+            vm.GET_LINES_ART();
         })
 
     },
     watch: {
         $route() {
-            this.artAsync();
+            this.GET_LINES_ART();
         }
     },
     methods: {
-        ...mapActions(['artAsync'])
+        ...mapActions([types_lines.GET_ART])
     }
 }
 </script>
 <style lang="scss">
 #detail {
-    width: 100px;
+    width: 100%;
     height: 1000px;
     background-color: #000;
     color: #fff

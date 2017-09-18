@@ -1,47 +1,49 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
-import * as type from './mutation-types'
 Vue.use(Vuex);
 
+import {
+  types_g
+} from './mutation-types.js'
 
-const store = new Vuex.Store({
+/**
+ * 导入各个模块的store
+ */
+import store_lines from './store-lines'
+import store_orders from './store-orders'
+import store_users from './store-users'
+
+/**
+ * 注册全局store
+ */
+const G_Store = {
   state: {
     loading: true,
-    error: false,
-    art: '没有被art'
-  },
-  getters: {
-    loading2(state) {
-      return state.loading2 = 2;
-    }
+    error: false
   },
   mutations: {
-    [type.UPDATE_LOADING](state, val) {
-      state.loading = val
+    [types_g.UPDATE_LOADING](state, val) {
+      state.loading = val;
     },
-    [type.UPDATE_ERROR](state, val) {
-      state.error = val
-    },
-    [type.GET_ART](state, val) {
-      state.art = val;
-    }
-  },
-  actions: {
-    artAsync({
-      commit
-    }) {
-      return new Promise((resolve, reject) => {
-        commit(type.UPDATE_LOADING, true)
-        setTimeout(function () {
-          commit(type.GET_ART, '被art了' + Math.random());
-          commit(type.UPDATE_LOADING, false);
-          resolve();
-        }, 2000)
-      })
-
+    [types_g.UPDATE_ERROR](state, val) {
+      state.error = val;
     }
   }
-})
+}
 
-export default store
+/**
+ * 注册模块store
+ */
+const modules = {
+  lines: store_lines,
+  orders: store_orders,
+  users: store_users
+}
+
+
+export default new Vuex.Store({
+  state: G_Store.state,
+  mutations: G_Store.mutations,
+  actions: G_Store.actions,
+  modules
+})
