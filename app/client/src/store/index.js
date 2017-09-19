@@ -2,6 +2,9 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 Vue.use(Vuex);
 
+/**
+ * 导入 mutation types
+ */
 import {
   types_g
 } from './mutation-types.js'
