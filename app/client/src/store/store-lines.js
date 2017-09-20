@@ -1,8 +1,13 @@
 import {
-  types_lines,
   types_g
-} from './mutation-types.js'
+} from './store-g'
 
+export const types_lines = {
+  /**
+   * 得到文章数据
+   */
+  GET_ART: 'GET_LINES_ART'
+}
 export default {
   state: {
     art: '还没拿到数据'

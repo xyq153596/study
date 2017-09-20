@@ -1,8 +1,13 @@
 import {
-  types_users,
   types_g
-} from './mutation-types.js'
+} from './store-g'
 
+/**
+ * 用户中心
+ */
+export const types_users = {
+
+}
 export default {
   state: {
 

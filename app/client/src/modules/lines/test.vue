@@ -1,10 +1,10 @@
 <template>
     <div>
-        大傻逼</div>
+        大傻逼222</div>
 </template>
 <script>
 export default {
-    name: 'sb1'
+    name: 'sb222'
 }
 </script>
 

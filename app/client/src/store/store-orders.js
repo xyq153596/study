@@ -1,8 +1,13 @@
 import {
-  types_orders,
   types_g
-} from './mutation-types.js'
+} from './store-g'
 
+/**
+ * 订单页
+ */
+export const types_orders = {
+
+}
 export default {
   state: {
 

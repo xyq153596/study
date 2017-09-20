@@ -112,7 +112,7 @@ if (config.build.bundleAnalyzerReport) {
 if (config.common.single) {
   let conf = {
     filename: path.join(config.build.assetsRoot, 'view', '/index.html'),
-    template: './src/index.html',
+    template: './index.html',
     inject: true,
     minify: {
       removeComments: true,

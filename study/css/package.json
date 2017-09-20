@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "gulp": "^3.9.1",
+    "koa": "^2.3.0",
+    "koa-route": "^3.2.0",
+    "koa-static": "^4.0.1"
+  },
+  "scripts": {
+    "run":"gulp b"
+  }
+}

@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+
+body,
+html {
+    background-color: #000;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    /*定义主轴的方向*/
+    flex-direction: row;
+    flex-wrap: wrap;
+    color: #fff;
+    /*主轴对齐方式*/
+    justify-content: space-between;
+    /*交叉轴对齐方式*/
+    align-items: baseline;
+    /*多轴对齐方式*/
+    /* align-content: center; */
+}
+
+body>div {
+    flex-grow: 1;
+    background-color: #fff;
+    color: #000;
+    padding: 10px;
+    text-align: center;
+    height: 40px;
+}
+
+div:nth-of-type(3) {
+    background-color: red;
+    /* 单独设置 */
+    /* align-self: flex-end; */
+    order: 0;
+    flex-grow: 4;
+    height: 60px;
+}
+div:nth-of-type(2){
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
