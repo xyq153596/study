@@ -9,9 +9,16 @@
 </head>
 
 <body>
-    <script src="./Observer.js"></script>
-    <script src="./Compile.js"></script>
-    <script src="./Watcher.js"></script>
+    <div id="mvvm-app">
+        <input type="text" v-model="someStr">
+        <input type="text" v-model="child.someStr">
+        <p>{{getHelloWord}}</p>
+        <p>{{someStr}}</p>
+        <p v-html="child.htmlStr"></p>
+        <button v-on:click="clickBtn">change model</button>
+    </div>
+    <script src="./vm.js"></script>
+
 </body>
 
 </html>
