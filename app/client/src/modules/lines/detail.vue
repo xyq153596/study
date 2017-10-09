@@ -1,6 +1,6 @@
 <template>
     <div>
-        大傻逼</div>
+        大傻逼12</div>
 </template>
 <script>
 export default {
