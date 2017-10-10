@@ -6,7 +6,7 @@
     </div>
 </template>
 <script>
-import vHeader from '@components/common/header/header.vue'
+import vHeader from '@components/header/header.vue'
 export default {
     name: 'index',
     computed: {

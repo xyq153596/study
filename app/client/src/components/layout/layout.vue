@@ -12,8 +12,8 @@
   </div>
 </template>
 <script>
-  import mainheader from '@components/common/header/app.vue';
-  import mainfooter from '@components/common/footer/app.vue';
+  import mainheader from '@components/header/app.vue';
+  import mainfooter from '@components/footer/app.vue';
   export default {
     name: 'layout',
     components: {
