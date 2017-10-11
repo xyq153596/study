@@ -1,24 +1,22 @@
 <template>
-  <div class="footer">
-      这个是尾部
+  <div class="header">
+      这个是头部
       <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-    name:'footer'
+    name:'header'
 }
 </script>
 
 <style lang="scss">
-    @import '../../assets/scss/base.scss';
-    .footer{
+    @import '../../../assets/scss/base.scss';
+    .header{
         width:100%;
         height: 40px;
         background-color: #ccc;
-        position: fixed;
-        bottom: 0;
-        left: 0;
+        @include test();
     }
 </style>

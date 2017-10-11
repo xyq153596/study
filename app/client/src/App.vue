@@ -15,13 +15,3 @@ export default {
   name: 'app'
 }
 </script>
-
-<style>
-.v-enter-active {
-  transition: all .3s ease;
-}
-.v-enter, .v-leave-to
-{
-  opacity: 0;
-}
-</style>

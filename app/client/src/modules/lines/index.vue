@@ -3,10 +3,14 @@
         这是首页{{a}}</br>
         参数是:{{b}}
         <vHeader>123</vHeader>
+        <Group>
+            <Cell title="title" value="value"></Cell>
+        </Group>
     </div>
 </template>
 <script>
-import vHeader from '@components/header/header.vue'
+import vHeader from '@components/common/header/header.vue'
+import { Group, Cell } from 'vux'
 export default {
     name: 'index',
     computed: {
@@ -15,7 +19,9 @@ export default {
         }
     },
     components: {
-        vHeader
+        vHeader,
+        Group,
+        Cell
     },
     data() {
         return {

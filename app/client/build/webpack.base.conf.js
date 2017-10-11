@@ -3,13 +3,15 @@ var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
 
+const vuxLoader = require('vux-loader')
+
 function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
 
 
-module.exports = {
+const originalConfig = {
   entry: {
     main: resolve('src/main.js')
   },
@@ -27,7 +29,7 @@ module.exports = {
       '@components': resolve('src/components'),
       '@modules': resolve('src/modules'),
       '@assets': resolve('src/assets'),
-      '@store':resolve('src/store')
+      '@store': resolve('src/store')
     }
   },
   module: {
@@ -68,3 +70,12 @@ module.exports = {
     ]
   }
 }
+
+module.exports = vuxLoader.merge(originalConfig, {
+  options: {},
+  plugins: [{
+    name: 'vux-ui'
+  }, {
+    name: 'duplicate-style'
+  }]
+})

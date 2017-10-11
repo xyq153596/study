@@ -12,7 +12,7 @@ export default {
 </script>
 
 <style lang="scss">
-    @import '../../assets/scss/base.scss';
+    @import '../../../assets/scss/base.scss';
     .sidebar{
         width:100%;
         height: 40px;
