@@ -11,12 +11,10 @@ export default {
 }
 </script>
 
-<style lang="scss">
-    @import '../../../assets/scss/base.scss';
+<style lang="less">
     .header{
         width:100%;
         height: 40px;
         background-color: #ccc;
-        @include test();
     }
 </style>

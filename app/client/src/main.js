@@ -3,9 +3,12 @@ import App from './App'
 import router from './router'
 import store from './store'
 
-import FastClick from 'fastclick'
+// import FastClick from 'fastclick'
 
-FastClick.attache(document.body);
+// FastClick.attache(document.body);
+
+import  { AlertPlugin } from 'vux'
+Vue.use(AlertPlugin)
 
 const app = new Vue({
   el: '#app',

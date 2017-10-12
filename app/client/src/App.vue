@@ -1,9 +1,5 @@
 <template>
   <div id="app">
-    <router-link to="/detail">详细页</router-link>
-    <router-link to="/serach">搜索页</router-link>
-    <router-link to="/test">test</router-link>
-    <router-link to="/">主页</router-link>
     <transition>
     <router-view></router-view>
     </transition>
@@ -15,3 +11,10 @@ export default {
   name: 'app'
 }
 </script>
+
+<style lang="less">
+  //导入全局样式 
+  @import "./assets/css/base.less";
+  //导入vux全局样式 
+  @import '~vux/src/styles/reset.less';
+</style>
