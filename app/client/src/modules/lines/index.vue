@@ -1,31 +1,32 @@
 <template>
     <div id="index">
         <vHeader>123</vHeader>
-        <Swiper :list="list" :auto="true" :loop="true" @on-index-change="openAlert"></Swiper>
+        <Swiper :list="indexList" :auto="true" :loop="true" @on-index-change="openAlert"></Swiper>
     </div>
 </template>
 <script>
+import { mapActions,mapState } from 'vuex'
+import {types_lines} from '@store/store-lines'
+
 import vHeader from '@components/common/header/header.vue'
 import { Swiper } from 'vux'
+
 export default {
     name: 'index',
-    computed: {
-        a() {
-            return this.$store.state.testa
-        }
-    },
+    computed: mapState({
+        indexList:state=>state.lines.indexList
+    }),
     components: {
         vHeader,
         Swiper
     },
     data() {
         return {
-            b: this.$store.state.id,
-            list:[{ url: 'javascript:', img: 'https://static.vux.li/demo/1.jpg', title: '送你一朵fua' }, { url: 'javascript:', img: 'https://static.vux.li/demo/5.jpg', title: '送你一次旅行', fallbackImg: 'https://static.vux.li/demo/3.jpg' }]
+            a:1
         }
     },
-    mounted(){
-
+    mounted(){  
+        this[types_lines.GET_INDEX]();
     },
     methods:{
         openAlert(index){
@@ -39,7 +40,8 @@ export default {
                 console.log('Plugin: I\'m hiding')
             }
             })
-        }
+        },
+        ...mapActions([types_lines.GET_INDEX])
     }
 }
 </script>
