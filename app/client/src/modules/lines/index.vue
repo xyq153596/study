@@ -1,47 +1,42 @@
 <template>
     <div id="index">
-        <vHeader>123</vHeader>
-        <Swiper :list="indexList" :auto="true" :loop="true" @on-index-change="openAlert"></Swiper>
+        <vHeader>1253</vHeader>
+        <mSwiper v-bind:data="indexList"></mSwiper>
+        {{a|filter_chunk}}
     </div>
 </template>
 <script>
-import { mapActions,mapState } from 'vuex'
-import {types_lines} from '@store/store-lines'
 
+import { mapActions, mapState } from 'vuex'
+import { types_lines, typesValue } from '@store/store-lines'
 import vHeader from '@components/common/header/header.vue'
-import { Swiper } from 'vux'
+import mSwiper from '@components/lines/mSwiper.vue'
 
 export default {
     name: 'index',
     computed: mapState({
-        indexList:state=>state.lines.indexList
+        indexList: state => state.lines.indexList
     }),
     components: {
         vHeader,
-        Swiper
+        mSwiper
     },
     data() {
         return {
-            a:1
+            a: [1,2,3,4,5,6,7]
         }
     },
-    mounted(){  
+    mounted() {
+        /**
+         * 获取首页数据
+          */
         this[types_lines.GET_INDEX]();
     },
-    methods:{
-        openAlert(index){
-            this.$vux.alert.show({
-            title: '图片位置发生改变,当前:'+index,
-            content: 'Do you agree?',
-            onShow () {
-                console.log('Plugin: I\'m showing')
-            },
-            onHide () {
-                console.log('Plugin: I\'m hiding')
-            }
-            })
-        },
-        ...mapActions([types_lines.GET_INDEX])
+    methods: {
+        /**
+         * 注册actions
+          */
+        ...mapActions(typesValue)
     }
 }
 </script>

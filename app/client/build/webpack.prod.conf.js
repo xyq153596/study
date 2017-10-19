@@ -8,6 +8,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+var LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 
 
 // custom plugins
@@ -18,7 +19,7 @@ var env = process.env.NODE_ENV === 'testing' ?
   config.build.env
 
 var webpackConfig = merge(baseWebpackConfig, {
-  externals:{
+  externals: {
 
   },
   module: {
@@ -34,6 +35,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     chunkFilename: utils.assetsPath('js/[id].[chunkhash:8].js')
   },
   plugins: [
+    new LodashModuleReplacementPlugin,
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
       'process.env': env

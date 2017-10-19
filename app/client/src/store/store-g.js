@@ -6,7 +6,7 @@ export const types_g = {
   /**
    * 更新error
    */
-  UPDATE_ERROR: 'UPDATE_ERROR'
+  UPDATE_ERROR: 'UPDATE_G_ERROR'
 }
 
 export default {

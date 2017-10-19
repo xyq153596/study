@@ -1,7 +1,7 @@
-import Vue from 'vue'
+import Vux from 'vue'
 import Vuex from 'vuex'
-Vue.use(Vuex);
 
+Vux.use(Vuex);
 /**
  * 导入各个模块的store
  */

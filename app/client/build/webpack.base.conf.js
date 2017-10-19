@@ -29,7 +29,9 @@ const originalConfig = {
       '@components': resolve('src/components'),
       '@modules': resolve('src/modules'),
       '@assets': resolve('src/assets'),
-      '@store': resolve('src/store')
+      '@store': resolve('src/store'),
+      '@plugins': resolve('src/plugins'),
+      '@utils': resolve('src/utils')
     }
   },
   module: {
@@ -72,6 +74,11 @@ const originalConfig = {
 }
 
 module.exports = vuxLoader.merge(originalConfig, {
-  options: {},
-  plugins: ['vux-ui', 'duplicate-style']
+  options: {
+    showVuxVersionInfo: true
+  },
+  plugins: ['vux-ui', 'duplicate-style', {
+    name: 'less-theme',
+    path: resolve('src/assets/css/vux-custom.less')
+  }]
 })
