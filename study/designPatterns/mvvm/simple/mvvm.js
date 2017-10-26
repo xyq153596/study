@@ -10,15 +10,15 @@ class MVVM {
         let data = this._data = this.$options.data;
         let self = this;
 
-        
         Object.keys(data).forEach(key => {
             self._proxyData(key);
         })
 
         this._initComputed();
-        new Observer(data, this);
 
-        new Compile(options.el || document.body, this);
+        new Observer(data, this); //数据绑定
+
+        new Compile(options.el || document.body, this); //解析dom
     }
 
 

@@ -1,6 +1,10 @@
 const Watcher = require('./Watcher')
 let $elm;
 let timer = null;
+
+/**
+ * 视图更新方法的绑定
+ */
 const CompilerUtils = {
     bind(node, vm, exp, dir) {
         let updaterFn = updater[dir + 'Updater'];
@@ -66,6 +70,10 @@ const CompilerUtils = {
         })
     }
 }
+
+/**
+ * 更新方法类
+ */
 const updater = {
     htmlUpdater(node, value) {
         node.
@@ -82,6 +90,14 @@ const updater = {
         node.value = typeof value === 'undefined' ? '' : value;
     }
 }
+/**
+ * dom解析类
+ * dom转化成fragment
+ * 解析element节点
+ * 解析text节点
+ * 
+ * @class Compile
+ */
 class Compile {
     /**
      * Creates an instance of Compile.
