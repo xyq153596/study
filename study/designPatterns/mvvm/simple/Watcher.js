@@ -1,16 +1,29 @@
 const Dep = require('./Dep')
+
+/**
+ * 订阅者类
+ * 
+ * @class Watcher
+ */
 class Watcher {
+    /**
+     * Creates an instance of Watcher.
+     * @param {Vue} vue实例 
+     * @param {any} expOrFn 
+     * @param {Function} cb 回调方法
+     * @memberof Watcher
+     */
     constructor(vm, expOrFn, cb) {
+
         this.cb = cb;
         this.vm = vm;
-        this.expOrFn = expOrFn;
-        this.depIds = {};
+        this.expOrFn = expOrFn; //todo
+        this.depIds = {}; //todo
         if (typeof expOrFn === 'function') {
             this.getter = expOrFn;
         } else {
             this.getter = this.parseGetter(expOrFn);
         }
-        // this.update = this.update;
         this.value = this.get();
     }
 
@@ -19,8 +32,8 @@ class Watcher {
     }
 
     run() {
-        const value = this.get();
-        const oldVal = this.value;
+        let value = this.get();
+        let oldVal = this.value;
         if (value !== oldVal) {
             this.value = value;
             this.cb.call(this.vm, value, oldVal);
@@ -35,10 +48,14 @@ class Watcher {
     }
 
     parseGetter(exp) {
+        /**
+         * 匹配头部非字符，尾部任意字符
+         * @te，*er 等
+         */
         if (/[^\w.$]/.test(exp)) return;
-        const exps = exp.split('.');
+        let exps = exp.split('.');
         return function (obj) {
-            for (let i = 0, len = exp.length; i < len; i++) {
+            for (let i = 0, len = exps.length; i < len; i++) {
                 if (!obj) return;
                 obj = obj[exps[i]];
             }

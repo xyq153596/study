@@ -1,6 +1,6 @@
 module.exports = {
-    entry: './main.js',
+    entry: './simple/main.js',
     output: {
-        filename: 'vm.js'
+        filename: './build/vm.js'
     }
 }

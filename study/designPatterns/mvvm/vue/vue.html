@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    {{test}}
+    <div :class="'class'+a"></div>
+    <div v-if="show">出现了</div>
+    <div class="static" v-bind:class="{ active: isActive, 'text-danger': hasError }"></div>
+  </div>
+  <script>
+    let vm = new Vue({
+      data: {
+        test: 1,
+        a: 1,
+        show: false,
+        isActive: false,
+        hasError: true
+      },
+      methods: {
+        add() {
+          console.log(2);
+        }
+      },
+      mounted() {
+        this.add();
+      }
+    }).$mount('#app')
+  </script>
+</body>
+
+</html>

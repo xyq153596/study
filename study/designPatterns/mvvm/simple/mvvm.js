@@ -3,21 +3,22 @@ const Observer = require('./Observer')
 const Watcher = require('./Watcher')
 
 
+
 class MVVM {
     constructor(options) {
         this.$options = options || {};
         let data = this._data = this.$options.data;
         let self = this;
 
-        let observer = new Observer();
+        
         Object.keys(data).forEach(key => {
             self._proxyData(key);
         })
 
         this._initComputed();
-        observer.observe(data, this);
+        new Observer(data, this);
 
-        this.$compile = new Compile(options.el || document.body, this);
+        new Compile(options.el || document.body, this);
     }
 
 
