@@ -18,19 +18,41 @@ import VNode, {
   createEmptyVNode
 } from '../vdom/vnode'
 
-import { isUpdatingChildComponent } from './lifecycle'
+import {
+  isUpdatingChildComponent
+} from './lifecycle'
 
-import { createElement } from '../vdom/create-element'
-import { renderList } from './render-helpers/render-list'
-import { renderSlot } from './render-helpers/render-slot'
-import { resolveFilter } from './render-helpers/resolve-filter'
-import { checkKeyCodes } from './render-helpers/check-keycodes'
-import { bindObjectProps } from './render-helpers/bind-object-props'
-import { renderStatic, markOnce } from './render-helpers/render-static'
-import { bindObjectListeners } from './render-helpers/bind-object-listeners'
-import { resolveSlots, resolveScopedSlots } from './render-helpers/resolve-slots'
+import {
+  createElement
+} from '../vdom/create-element'
+import {
+  renderList
+} from './render-helpers/render-list'
+import {
+  renderSlot
+} from './render-helpers/render-slot'
+import {
+  resolveFilter
+} from './render-helpers/resolve-filter'
+import {
+  checkKeyCodes
+} from './render-helpers/check-keycodes'
+import {
+  bindObjectProps
+} from './render-helpers/bind-object-props'
+import {
+  renderStatic,
+  markOnce
+} from './render-helpers/render-static'
+import {
+  bindObjectListeners
+} from './render-helpers/bind-object-listeners'
+import {
+  resolveSlots,
+  resolveScopedSlots
+} from './render-helpers/resolve-slots'
 
-export function initRender (vm: Component) {
+export function initRender(vm: Component) {
   vm._vnode = null // the root of the child tree
   vm._staticTrees = null
   const parentVnode = vm.$vnode = vm.$options._parentVnode // the placeholder node in parent tree
@@ -64,7 +86,7 @@ export function initRender (vm: Component) {
   }
 }
 
-export function renderMixin (Vue: Class<Component>) {
+export function renderMixin(Vue: Class < Component > ) {
   Vue.prototype.$nextTick = function (fn: Function) {
     return nextTick(fn, this)
   }
@@ -83,7 +105,7 @@ export function renderMixin (Vue: Class<Component>) {
       for (const key in vm.$slots) {
         const slot = vm.$slots[key]
         if (slot._rendered) {
-          vm.$slots[key] = cloneVNodes(slot, true /* deep */)
+          vm.$slots[key] = cloneVNodes(slot, true /* deep */ )
         }
       }
     }
@@ -106,9 +128,9 @@ export function renderMixin (Vue: Class<Component>) {
       // or previous vnode to prevent render error causing blank component
       /* istanbul ignore else */
       if (process.env.NODE_ENV !== 'production') {
-        vnode = vm.$options.renderError
-          ? vm.$options.renderError.call(vm._renderProxy, vm.$createElement, e)
-          : vm._vnode
+        vnode = vm.$options.renderError ?
+          vm.$options.renderError.call(vm._renderProxy, vm.$createElement, e) :
+          vm._vnode
       } else {
         vnode = vm._vnode
       }

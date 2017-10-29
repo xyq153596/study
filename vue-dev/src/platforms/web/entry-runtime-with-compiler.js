@@ -1,13 +1,25 @@
 /* @flow */
 
 import config from 'core/config'
-import { warn, cached } from 'core/util/index'
-import { mark, measure } from 'core/util/perf'
+import {
+  warn,
+  cached
+} from 'core/util/index'
+import {
+  mark,
+  measure
+} from 'core/util/perf'
 
 import Vue from './runtime/index'
-import { query } from './util/index'
-import { shouldDecodeNewlines } from './util/compat'
-import { compileToFunctions } from './compiler/index'
+import {
+  query
+} from './util/index'
+import {
+  shouldDecodeNewlines
+} from './util/compat'
+import {
+  compileToFunctions
+} from './compiler/index'
 
 const idToTemplate = cached(id => {
   const el = query(id)
@@ -16,8 +28,8 @@ const idToTemplate = cached(id => {
 
 const mount = Vue.prototype.$mount
 Vue.prototype.$mount = function (
-  el?: string | Element,
-  hydrating?: boolean
+  el ? : string | Element,
+  hydrating ? : boolean
 ): Component {
   el = el && query(el)
 
@@ -62,7 +74,10 @@ Vue.prototype.$mount = function (
         mark('compile')
       }
 
-      const { render, staticRenderFns } = compileToFunctions(template, {
+      const {
+        render,
+        staticRenderFns
+      } = compileToFunctions(template, {
         shouldDecodeNewlines,
         delimiters: options.delimiters,
         comments: options.comments
@@ -84,7 +99,7 @@ Vue.prototype.$mount = function (
  * Get outerHTML of elements, taking care
  * of SVG elements in IE as well.
  */
-function getOuterHTML (el: Element): string {
+function getOuterHTML(el: Element): string {
   if (el.outerHTML) {
     return el.outerHTML
   } else {

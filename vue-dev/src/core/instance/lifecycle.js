@@ -2,11 +2,22 @@
 
 import config from '../config'
 import Watcher from '../observer/watcher'
-import { mark, measure } from '../util/perf'
-import { createEmptyVNode } from '../vdom/vnode'
-import { observerState } from '../observer/index'
-import { updateComponentListeners } from './events'
-import { resolveSlots } from './render-helpers/resolve-slots'
+import {
+  mark,
+  measure
+} from '../util/perf'
+import {
+  createEmptyVNode
+} from '../vdom/vnode'
+import {
+  observerState
+} from '../observer/index'
+import {
+  updateComponentListeners
+} from './events'
+import {
+  resolveSlots
+} from './render-helpers/resolve-slots'
 
 import {
   warn,
@@ -20,7 +31,7 @@ import {
 export let activeInstance: any = null
 export let isUpdatingChildComponent: boolean = false
 
-export function initLifecycle (vm: Component) {
+export function initLifecycle(vm: Component) {
   const options = vm.$options
 
   // locate first non-abstract parent
@@ -46,8 +57,8 @@ export function initLifecycle (vm: Component) {
   vm._isBeingDestroyed = false
 }
 
-export function lifecycleMixin (Vue: Class<Component>) {
-  Vue.prototype._update = function (vnode: VNode, hydrating?: boolean) {
+export function lifecycleMixin(Vue: Class < Component > ) {
+  Vue.prototype._update = function (vnode: VNode, hydrating ? : boolean) {
     const vm: Component = this
     if (vm._isMounted) {
       callHook(vm, 'beforeUpdate')
@@ -62,7 +73,7 @@ export function lifecycleMixin (Vue: Class<Component>) {
     if (!prevVnode) {
       // initial render
       vm.$el = vm.__patch__(
-        vm.$el, vnode, hydrating, false /* removeOnly */,
+        vm.$el, vnode, hydrating, false /* removeOnly */ ,
         vm.$options._parentElm,
         vm.$options._refElm
       )
@@ -136,10 +147,10 @@ export function lifecycleMixin (Vue: Class<Component>) {
   }
 }
 
-export function mountComponent (
+export function mountComponent(
   vm: Component,
-  el: ?Element,
-  hydrating?: boolean
+  el: ? Element,
+  hydrating ? : boolean
 ): Component {
   vm.$el = el
   if (!vm.$options.render) {
@@ -201,12 +212,12 @@ export function mountComponent (
   return vm
 }
 
-export function updateChildComponent (
+export function updateChildComponent(
   vm: Component,
-  propsData: ?Object,
-  listeners: ?Object,
-  parentVnode: VNode,
-  renderChildren: ?Array<VNode>
+  propsData: ? Object,
+  listeners : ? Object,
+  parentVnode : VNode,
+  renderChildren: ? Array < VNode >
 ) {
   if (process.env.NODE_ENV !== 'production') {
     isUpdatingChildComponent = true
@@ -215,8 +226,8 @@ export function updateChildComponent (
   // determine whether component has slot children
   // we need to do this before overwriting $options._renderChildren
   const hasChildren = !!(
-    renderChildren ||               // has new static slots
-    vm.$options._renderChildren ||  // has old static slots
+    renderChildren || // has new static slots
+    vm.$options._renderChildren || // has old static slots
     parentVnode.data.scopedSlots || // has new scoped slots
     vm.$scopedSlots !== emptyObject // has old scoped slots
   )
@@ -266,14 +277,14 @@ export function updateChildComponent (
   }
 }
 
-function isInInactiveTree (vm) {
+function isInInactiveTree(vm) {
   while (vm && (vm = vm.$parent)) {
     if (vm._inactive) return true
   }
   return false
 }
 
-export function activateChildComponent (vm: Component, direct?: boolean) {
+export function activateChildComponent(vm: Component, direct ? : boolean) {
   if (direct) {
     vm._directInactive = false
     if (isInInactiveTree(vm)) {
@@ -291,7 +302,7 @@ export function activateChildComponent (vm: Component, direct?: boolean) {
   }
 }
 
-export function deactivateChildComponent (vm: Component, direct?: boolean) {
+export function deactivateChildComponent(vm: Component, direct ? : boolean) {
   if (direct) {
     vm._directInactive = true
     if (isInInactiveTree(vm)) {
@@ -307,7 +318,7 @@ export function deactivateChildComponent (vm: Component, direct?: boolean) {
   }
 }
 
-export function callHook (vm: Component, hook: string) {
+export function callHook(vm: Component, hook: string) {
   const handlers = vm.$options[hook]
   if (handlers) {
     for (let i = 0, j = handlers.length; i < j; i++) {

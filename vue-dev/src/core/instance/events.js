@@ -7,9 +7,11 @@ import {
   handleError,
   formatComponentName
 } from '../util/index'
-import { updateListeners } from '../vdom/helpers/index'
+import {
+  updateListeners
+} from '../vdom/helpers/index'
 
-export function initEvents (vm: Component) {
+export function initEvents(vm: Component) {
   vm._events = Object.create(null)
   vm._hasHookEvent = false
   // init parent attached events
@@ -21,7 +23,7 @@ export function initEvents (vm: Component) {
 
 let target: Component
 
-function add (event, fn, once) {
+function add(event, fn, once) {
   if (once) {
     target.$once(event, fn)
   } else {
@@ -29,22 +31,22 @@ function add (event, fn, once) {
   }
 }
 
-function remove (event, fn) {
+function remove(event, fn) {
   target.$off(event, fn)
 }
 
-export function updateComponentListeners (
+export function updateComponentListeners(
   vm: Component,
   listeners: Object,
-  oldListeners: ?Object
+  oldListeners: ? Object
 ) {
   target = vm
   updateListeners(listeners, oldListeners || {}, add, remove, vm)
 }
 
-export function eventsMixin (Vue: Class<Component>) {
+export function eventsMixin(Vue: Class < Component > ) {
   const hookRE = /^hook:/
-  Vue.prototype.$on = function (event: string | Array<string>, fn: Function): Component {
+  Vue.prototype.$on = function (event: string | Array < string > , fn: Function): Component {
     const vm: Component = this
     if (Array.isArray(event)) {
       for (let i = 0, l = event.length; i < l; i++) {
@@ -63,7 +65,8 @@ export function eventsMixin (Vue: Class<Component>) {
 
   Vue.prototype.$once = function (event: string, fn: Function): Component {
     const vm: Component = this
-    function on () {
+
+    function on() {
       vm.$off(event, on)
       fn.apply(vm, arguments)
     }
@@ -72,7 +75,7 @@ export function eventsMixin (Vue: Class<Component>) {
     return vm
   }
 
-  Vue.prototype.$off = function (event?: string | Array<string>, fn?: Function): Component {
+  Vue.prototype.$off = function (event ? : string | Array < string > , fn ? : Function): Component {
     const vm: Component = this
     // all
     if (!arguments.length) {

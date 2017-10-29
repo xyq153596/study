@@ -3,7 +3,9 @@
 import config from '../config'
 import Dep from '../observer/dep'
 import Watcher from '../observer/watcher'
-import { isUpdatingChildComponent } from './lifecycle'
+import {
+  isUpdatingChildComponent
+} from './lifecycle'
 
 import {
   set,
@@ -34,17 +36,17 @@ const sharedPropertyDefinition = {
   set: noop
 }
 
-export function proxy (target: Object, sourceKey: string, key: string) {
-  sharedPropertyDefinition.get = function proxyGetter () {
+export function proxy(target: Object, sourceKey: string, key: string) {
+  sharedPropertyDefinition.get = function proxyGetter() {
     return this[sourceKey][key]
   }
-  sharedPropertyDefinition.set = function proxySetter (val) {
+  sharedPropertyDefinition.set = function proxySetter(val) {
     this[sourceKey][key] = val
   }
   Object.defineProperty(target, key, sharedPropertyDefinition)
 }
 
-export function initState (vm: Component) {
+export function initState(vm: Component) {
   vm._watchers = []
   const opts = vm.$options
   if (opts.props) initProps(vm, opts.props)
@@ -52,7 +54,7 @@ export function initState (vm: Component) {
   if (opts.data) {
     initData(vm)
   } else {
-    observe(vm._data = {}, true /* asRootData */)
+    observe(vm._data = {}, true /* asRootData */ )
   }
   if (opts.computed) initComputed(vm, opts.computed)
   if (opts.watch && opts.watch !== nativeWatch) {
@@ -60,7 +62,7 @@ export function initState (vm: Component) {
   }
 }
 
-function checkOptionType (vm: Component, name: string) {
+function checkOptionType(vm: Component, name: string) {
   const option = vm.$options[name]
   if (!isPlainObject(option)) {
     warn(
@@ -70,7 +72,7 @@ function checkOptionType (vm: Component, name: string) {
   }
 }
 
-function initProps (vm: Component, propsOptions: Object) {
+function initProps(vm: Component, propsOptions: Object) {
   const propsData = vm.$options.propsData || {}
   const props = vm._props = {}
   // cache prop keys so that future props updates can iterate using Array
@@ -114,11 +116,11 @@ function initProps (vm: Component, propsOptions: Object) {
   observerState.shouldConvert = true
 }
 
-function initData (vm: Component) {
+function initData(vm: Component) {
   let data = vm.$options.data
-  data = vm._data = typeof data === 'function'
-    ? getData(data, vm)
-    : data || {}
+  data = vm._data = typeof data === 'function' ?
+    getData(data, vm) :
+    data || {}
   if (!isPlainObject(data)) {
     data = {}
     process.env.NODE_ENV !== 'production' && warn(
@@ -153,10 +155,10 @@ function initData (vm: Component) {
     }
   }
   // observe data
-  observe(data, true /* asRootData */)
+  observe(data, true /* asRootData */ )
 }
 
-function getData (data: Function, vm: Component): any {
+function getData(data: Function, vm: Component): any {
   try {
     return data.call(vm)
   } catch (e) {
@@ -165,9 +167,11 @@ function getData (data: Function, vm: Component): any {
   }
 }
 
-const computedWatcherOptions = { lazy: true }
+const computedWatcherOptions = {
+  lazy: true
+}
 
-function initComputed (vm: Component, computed: Object) {
+function initComputed(vm: Component, computed: Object) {
   process.env.NODE_ENV !== 'production' && checkOptionType(vm, 'computed')
   const watchers = vm._computedWatchers = Object.create(null)
   // computed properties are just getters during SSR
@@ -208,29 +212,29 @@ function initComputed (vm: Component, computed: Object) {
   }
 }
 
-export function defineComputed (
+export function defineComputed(
   target: any,
   key: string,
   userDef: Object | Function
 ) {
   const shouldCache = !isServerRendering()
   if (typeof userDef === 'function') {
-    sharedPropertyDefinition.get = shouldCache
-      ? createComputedGetter(key)
-      : userDef
+    sharedPropertyDefinition.get = shouldCache ?
+      createComputedGetter(key) :
+      userDef
     sharedPropertyDefinition.set = noop
   } else {
-    sharedPropertyDefinition.get = userDef.get
-      ? shouldCache && userDef.cache !== false
-        ? createComputedGetter(key)
-        : userDef.get
-      : noop
-    sharedPropertyDefinition.set = userDef.set
-      ? userDef.set
-      : noop
+    sharedPropertyDefinition.get = userDef.get ?
+      shouldCache && userDef.cache !== false ?
+      createComputedGetter(key) :
+      userDef.get :
+      noop
+    sharedPropertyDefinition.set = userDef.set ?
+      userDef.set :
+      noop
   }
   if (process.env.NODE_ENV !== 'production' &&
-      sharedPropertyDefinition.set === noop) {
+    sharedPropertyDefinition.set === noop) {
     sharedPropertyDefinition.set = function () {
       warn(
         `Computed property "${key}" was assigned to but it has no setter.`,
@@ -241,8 +245,8 @@ export function defineComputed (
   Object.defineProperty(target, key, sharedPropertyDefinition)
 }
 
-function createComputedGetter (key) {
-  return function computedGetter () {
+function createComputedGetter(key) {
+  return function computedGetter() {
     const watcher = this._computedWatchers && this._computedWatchers[key]
     if (watcher) {
       if (watcher.dirty) {
@@ -256,7 +260,7 @@ function createComputedGetter (key) {
   }
 }
 
-function initMethods (vm: Component, methods: Object) {
+function initMethods(vm: Component, methods: Object) {
   process.env.NODE_ENV !== 'production' && checkOptionType(vm, 'methods')
   const props = vm.$options.props
   for (const key in methods) {
@@ -285,7 +289,7 @@ function initMethods (vm: Component, methods: Object) {
   }
 }
 
-function initWatch (vm: Component, watch: Object) {
+function initWatch(vm: Component, watch: Object) {
   process.env.NODE_ENV !== 'production' && checkOptionType(vm, 'watch')
   for (const key in watch) {
     const handler = watch[key]
@@ -299,11 +303,11 @@ function initWatch (vm: Component, watch: Object) {
   }
 }
 
-function createWatcher (
+function createWatcher(
   vm: Component,
   keyOrFn: string | Function,
   handler: any,
-  options?: Object
+  options ? : Object
 ) {
   if (isPlainObject(handler)) {
     options = handler
@@ -315,14 +319,18 @@ function createWatcher (
   return vm.$watch(keyOrFn, handler, options)
 }
 
-export function stateMixin (Vue: Class<Component>) {
+export function stateMixin(Vue: Class < Component > ) {
   // flow somehow has problems with directly declared definition object
   // when using Object.defineProperty, so we have to procedurally build up
   // the object here.
   const dataDef = {}
-  dataDef.get = function () { return this._data }
+  dataDef.get = function () {
+    return this._data
+  }
   const propsDef = {}
-  propsDef.get = function () { return this._props }
+  propsDef.get = function () {
+    return this._props
+  }
   if (process.env.NODE_ENV !== 'production') {
     dataDef.set = function (newData: Object) {
       warn(
@@ -344,7 +352,7 @@ export function stateMixin (Vue: Class<Component>) {
   Vue.prototype.$watch = function (
     expOrFn: string | Function,
     cb: any,
-    options?: Object
+    options ? : Object
   ): Function {
     const vm: Component = this
     if (isPlainObject(cb)) {
@@ -356,7 +364,7 @@ export function stateMixin (Vue: Class<Component>) {
     if (options.immediate) {
       cb.call(vm, watcher.value)
     }
-    return function unwatchFn () {
+    return function unwatchFn() {
       watcher.teardown()
     }
   }

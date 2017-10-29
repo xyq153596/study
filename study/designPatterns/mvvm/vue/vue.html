@@ -11,19 +11,16 @@
 
 <body>
   <div id="app">
+    <div>{{test}}</div>
+    <div :src="test"></div>
+    
+    
     {{test}}
-    <div :class="'class'+a"></div>
-    <div v-if="show">出现了</div>
-    <div class="static" v-bind:class="{ active: isActive, 'text-danger': hasError }"></div>
   </div>
   <script>
     let vm = new Vue({
       data: {
-        test: 1,
-        a: 1,
-        show: false,
-        isActive: false,
-        hasError: true
+        test: 1
       },
       methods: {
         add() {

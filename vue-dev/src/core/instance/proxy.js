@@ -1,7 +1,10 @@
 /* not type checking this file because flow doesn't play well with Proxy */
 
 import config from 'core/config'
-import { warn, makeMap } from '../util/index'
+import {
+  warn,
+  makeMap
+} from '../util/index'
 
 let initProxy
 
@@ -22,6 +25,7 @@ if (process.env.NODE_ENV !== 'production') {
     )
   }
 
+  // 浏览器是否支持proxy代理
   const hasProxy =
     typeof Proxy !== 'undefined' &&
     Proxy.toString().match(/native code/)
@@ -29,7 +33,7 @@ if (process.env.NODE_ENV !== 'production') {
   if (hasProxy) {
     const isBuiltInModifier = makeMap('stop,prevent,self,ctrl,shift,alt,meta')
     config.keyCodes = new Proxy(config.keyCodes, {
-      set (target, key, value) {
+      set(target, key, value) {
         if (isBuiltInModifier(key)) {
           warn(`Avoid overwriting built-in modifier in config.keyCodes: .${key}`)
           return false
@@ -42,7 +46,7 @@ if (process.env.NODE_ENV !== 'production') {
   }
 
   const hasHandler = {
-    has (target, key) {
+    has(target, key) {
       const has = key in target
       const isAllowed = allowedGlobals(key) || key.charAt(0) === '_'
       if (!has && !isAllowed) {
@@ -53,7 +57,7 @@ if (process.env.NODE_ENV !== 'production') {
   }
 
   const getHandler = {
-    get (target, key) {
+    get(target, key) {
       if (typeof key === 'string' && !(key in target)) {
         warnNonPresent(target, key)
       }
@@ -61,13 +65,13 @@ if (process.env.NODE_ENV !== 'production') {
     }
   }
 
-  initProxy = function initProxy (vm) {
+  initProxy = function initProxy(vm) {
     if (hasProxy) {
       // determine which proxy handler to use
       const options = vm.$options
-      const handlers = options.render && options.render._withStripped
-        ? getHandler
-        : hasHandler
+      const handlers = options.render && options.render._withStripped ?
+        getHandler :
+        hasHandler
       vm._renderProxy = new Proxy(vm, handlers)
     } else {
       vm._renderProxy = vm
@@ -75,4 +79,6 @@ if (process.env.NODE_ENV !== 'production') {
   }
 }
 
-export { initProxy }
+export {
+  initProxy
+}
