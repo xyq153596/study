@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.5,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .demo {
+      width: 100%;
+      height: 300px;
+      background-color: #ccc;
+      margin: 30px 0;
+      font-size: 24px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="text"></div>
+  <div class="demo">0001</div>
+  <div class="demo">0002</div>
+  <div class="demo">0003</div>
+  <div class="demo">0004</div>
+  <div class="demo">0005</div>
+  <div class="demo">0006</div>
+  <div class="demo">0007</div>
+  <div class="demo">0008</div>
+  <div class="demo">0009</div>
+  <div class="demo">0010</div>
+  <div class="demo">0011</div>
+  <div class="demo">0012</div>
+  <div class="demo">0013</div>
+  <div class="demo">0014</div>
+  <div class="demo">0015</div>
+  <div class="demo">0016</div>
+  <div class="demo">0017</div>
+  <div class="demo">0018</div>
+  <div class="demo">0019</div>
+  <div class="demo">0020</div>
+  <script>
+    document.querySelector('#text').innerHTML = document.querySelector('body').clientWidth;
+
+    function ttt() {
+      console.log(1);
+    };
+    window.addEventListener('scroll', ttt);
+    window.setTimeout(()=>{
+      window.removeEventListener('scroll',ttt);
+    },3000)
+  </script>
+</body>
+
+</html>
