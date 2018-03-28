@@ -49,14 +49,14 @@ export function _createElement (
   children?: any,
   normalizationType?: number
 ): VNode {
-  if (isDef(data) && isDef((data: any).__ob__)) {
-    process.env.NODE_ENV !== 'production' && warn(
-      `Avoid using observed data object as vnode data: ${JSON.stringify(data)}\n` +
-      'Always create fresh vnode data objects in each render!',
-      context
-    )
-    return createEmptyVNode()
-  }
+  // if (isDef(data) && isDef((data: any).__ob__)) {
+  //   process.env.NODE_ENV !== 'production' && warn(
+  //     `Avoid using observed data object as vnode data: ${JSON.stringify(data)}\n` +
+  //     'Always create fresh vnode data objects in each render!',
+  //     context
+  //   )
+  //   return createEmptyVNode()
+  // }
   // object syntax in v-bind
   if (isDef(data) && isDef(data.is)) {
     tag = data.is
@@ -92,7 +92,7 @@ export function _createElement (
   if (typeof tag === 'string') {
     let Ctor
     ns = (context.$vnode && context.$vnode.ns) || config.getTagNamespace(tag)
-    if (config.isReservedTag(tag)) {
+    if (config.isReservedTag(tag)) {//是否是预设的tag
       // platform built-in elements
       vnode = new VNode(
         config.parsePlatformTagName(tag), data, children,

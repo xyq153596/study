@@ -16,7 +16,7 @@ import VNode, {
   cloneVNodes,
   createTextVNode,
   createEmptyVNode
-} from '../vdom/vnode'
+} from '../vdom/vnode' //##
 
 import {
   isUpdatingChildComponent
@@ -24,7 +24,7 @@ import {
 
 import {
   createElement
-} from '../vdom/create-element'
+} from '../vdom/create-element'//##
 import {
   renderList
 } from './render-helpers/render-list'

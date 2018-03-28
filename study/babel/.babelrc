@@ -1,0 +1,14 @@
+{
+
+  "plugins": [
+
+    [
+      "component",
+      {
+        "libraryName": "test-module",
+        "style": true
+      },
+      "test-module"
+    ]
+  ]
+}

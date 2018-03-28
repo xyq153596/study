@@ -18,10 +18,10 @@ export function createStore() {
         commit
       }) {
         return new Promise((resolve, reject) => {
-          setTimeout(() => {
+          // setTimeout(() => {
             commit('setData', '得到了大傻逼' + Math.random());
             resolve();
-          }, 1000);
+          // }, 1000);
 
         })
       }

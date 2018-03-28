@@ -25,7 +25,8 @@ class Work {
     const renderer = createBundleRenderer(serverBundle, {
       clientManifest,
       template,
-      inject: false
+      inject: false,
+      runInNewContext: false
     })
 
     function index(ctx, next) {

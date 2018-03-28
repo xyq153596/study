@@ -10,7 +10,7 @@ import {
   measure
 } from 'core/util/perf'
 
-import Vue from './runtime/index'
+import Vue from './runtime/index' //##
 import {
   query
 } from './util/index'
@@ -19,7 +19,7 @@ import {
 } from './util/compat'
 import {
   compileToFunctions
-} from './compiler/index'
+} from './compiler/index' //##
 
 const idToTemplate = cached(id => {
   const el = query(id)

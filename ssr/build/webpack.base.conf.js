@@ -14,6 +14,9 @@ module.exports = {
     rules: [{
       test: /\.vue$/,
       loader: "vue-loader",
+      options: {
+        extractCSS: true
+      },
       exclude: /node_modules/i
     }, {
       test: /\.js$/,
@@ -26,5 +29,8 @@ module.exports = {
         use: ["css-loader", "sass-loader"]
       })
     }]
-  }
+  },
+  plugins: [new ExtractTextPlugin({
+    filename: 'common.[chunkhash].css'
+  })]
 }

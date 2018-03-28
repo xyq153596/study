@@ -13,7 +13,7 @@ class Agent {
   async start() {
     this.microCache = LRU({
       max: 100,
-      maxAge: 5000 // 重要提示：条目在 1 秒后过期。
+      maxAge: 5000 // 重要提示：条目在 5 秒后过期。
     })
 
   }

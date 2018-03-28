@@ -13,7 +13,7 @@ import {
   observe,
   observerState,
   defineReactive
-} from '../observer/index'
+} from '../observer/index'//##
 
 import {
   warn,
