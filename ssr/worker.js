@@ -58,7 +58,7 @@ class Work {
     server.use(route.get('/', index));
     server.use(assets);
 
-    server.listen(3000);
+    server.listen(80);
   }
 }
 
