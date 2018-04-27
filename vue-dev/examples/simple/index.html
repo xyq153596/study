@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .p0 {
+      font-size: 20px
+    }
+
+    .p1 {
+      font-size: 40px
+    }
+
+    .p2 {
+      font-size: 50px
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="app">
+
+  </div>
+  <script src="../../dist/vue.js"></script>
+  <script>
+Vue.config.devtools = false
+
+    Vue.config.optionMergeStrategies.methods = function (toVal, fromVal, vm) {
+
+      if (!toVal) return fromVal;
+      if (!fromVal) return toVal;
+
+      let queue = [];
+      queue.push(toVal);
+
+
+
+
+      return {
+        a() {
+          console.log('自定义')
+        }
+      }
+
+
+
+
+    }
+
+
+    const vm = new Vue({
+      el: "#app",
+      mixins: [{
+        methods: {
+          a() {
+            console.log(2)
+          }
+        }
+      }, {
+        methods: {
+          a() {
+            console.log(3)
+          }
+        }
+      }],
+
+      methods: {
+        a() {
+          console.log(1);
+        }
+      },
+      created() {
+        this.a()
+      }
+    })
+
+  </script>
+</body>
+
+</html>

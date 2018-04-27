@@ -11,8 +11,9 @@ const serverBundle = require('./dist/vue-ssr-server-bundle.json')
 const clientManifest = require('./dist/vue-ssr-client-manifest.json')
 const template = fs.readFileSync('./index.html', 'utf-8')
 
+const sb = require('./test')
 
-
+console.log('----new koa----')
 class Work {
   constructor(context) {
     this.context = context;
@@ -28,14 +29,13 @@ class Work {
       inject: false,
       runInNewContext: false
     })
-
+    
     function index(ctx, next) {
       let context = {};
       ctx.response.type = 'html';
-
       const hit = agent.getCache(ctx.request.url);
       return hit.then(res => {
-        if (res) {
+        if (false) {
           ctx.response.body = res;
           return;
         }
@@ -58,7 +58,7 @@ class Work {
     server.use(route.get('/', index));
     server.use(assets);
 
-    server.listen(80);
+    server.listen(8080);
   }
 }
 

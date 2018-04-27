@@ -35,6 +35,7 @@ export function removeChild (node: Node, child: Node) {
 }
 
 export function appendChild (node: Node, child: Node) {
+  
   node.appendChild(child)
 }
 

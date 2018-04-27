@@ -16,6 +16,8 @@ import type { ISet } from '../util/index'
 
 let uid = 0
 
+
+
 /**
  * A watcher parses an expression, collects dependencies,
  * and fires callback when the expression value changes.
@@ -113,7 +115,6 @@ export default class Watcher {
     }
     return value
   }
-
   /**
    * Add a dependency to this directive.
    */

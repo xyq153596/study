@@ -19,7 +19,7 @@ export function createStore() {
       }) {
         return new Promise((resolve, reject) => {
           // setTimeout(() => {
-            commit('setData', '得到了大傻逼' + Math.random());
+            commit('setData', '得到了' + Math.random());
             resolve();
           // }, 1000);
 

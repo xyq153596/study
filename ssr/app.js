@@ -7,7 +7,7 @@ import {
 // 应用程序、router 和 store 实例
 export function createApp() {
   const store = createStore();
-
+  console.log('----new vue----')
   const app = new Vue({
     store,
     // 根实例简单的渲染应用程序组件。
