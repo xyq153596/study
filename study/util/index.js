@@ -2,17 +2,16 @@ function throttle(fn) {
   let delay = 500;
   let timer;
 
-  return function () {
+  return function() {
     const _self = this;
     const args = arguments;
     if (!timer) {
-      timer = setTimeout(function () {
-        fn.apply(_self, args)
+      timer = setTimeout(function() {
+        fn.apply(_self, args);
         timer = null;
       }, delay);
-
     }
-  }
+  };
 }
 
 function isSameObject(a, b) {
@@ -22,17 +21,16 @@ function isSameObject(a, b) {
 var a = {
   a: 1,
   b: 3
-}
+};
 var b = {
   a: 1,
   b: 2
-}
+};
 
-
-console.log(isSameObject(a, b))
+console.log(isSameObject(a, b));
 
 function cloneObject(obj) {
-  if (typeof obj === "object") {
+  if (typeof obj === 'object') {
     if (obj.constructor === Array) {
       var newArr = [];
       for (var i = 0; i < obj.length; i++) newArr.push(cloneObject(obj[i]));
@@ -49,20 +47,21 @@ function cloneObject(obj) {
   }
 }
 
-console.log(cloneObject({
-  a: 1,
-  b: function () {}
-}))
+console.log(
+  cloneObject({
+    a: 1,
+    b: function() {}
+  })
+);
 
-var test = function () {
+var test = function() {
   console.log(this.a);
-}
-
+};
 
 function testBind(target) {
   const _self = this;
   const args = Array.prototype.slice.apply(arguments, [1]);
-  return function () {
+  return function() {
     return _self.apply(target, args);
-  }
+  };
 }
